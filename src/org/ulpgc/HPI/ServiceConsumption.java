@@ -15,4 +15,5 @@ public class ServiceConsumption {
         double totalPagar = consumo * t.getPrecioActualKWh();
         return new Bill(consumo, totalPagar);
     }
+
 }
