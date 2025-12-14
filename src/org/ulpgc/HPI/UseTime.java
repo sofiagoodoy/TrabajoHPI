@@ -2,6 +2,7 @@ package org.ulpgc.HPI;
 
 import java.time.LocalTime;
 
+
 public class UseTime {
     private LocalTime startTime;
     private LocalTime endTime;

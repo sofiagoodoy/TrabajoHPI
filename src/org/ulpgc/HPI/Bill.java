@@ -1,5 +1,6 @@
 package org.ulpgc.HPI;
 
+
 public class Bill {
     private double totalKWh;
     private double totalPay;

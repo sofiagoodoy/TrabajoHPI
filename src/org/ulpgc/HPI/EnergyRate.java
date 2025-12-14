@@ -1,5 +1,6 @@
 package org.ulpgc.HPI;
 
+
 public class EnergyRate {
     private double priceActualKWh;
     private double precioPunta;

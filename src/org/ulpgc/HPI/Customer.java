@@ -18,6 +18,7 @@ public class Customer {
         this.appliances = new ArrayList<>();
     }
 
+
     public void addAppliance(Appliance e) {
         appliances.add(e);
     }

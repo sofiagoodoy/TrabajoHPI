@@ -1,5 +1,6 @@
 package org.ulpgc.HPI;
 
+
 public class ServiceConsumption {
 
     public double calculateTotal(Customer u) {

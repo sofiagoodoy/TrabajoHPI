@@ -1,5 +1,6 @@
 package org.ulpgc.HPI;
 
+
 public class Appliance {
     private String name;
     private double powerW;
