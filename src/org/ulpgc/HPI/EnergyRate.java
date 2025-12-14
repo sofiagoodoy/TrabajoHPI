@@ -2,17 +2,17 @@ package org.ulpgc.HPI;
 
 
 public class EnergyRate {
-    private double priceActualKWh;
-    private double precioPunta;
-    private double precioValle;
+    private double actualPriceKWh;
+    private double pointPrice;
+    private double valleyPrice;
 
     public EnergyRate(double priceActualKWh, double precioPunta, double precioValle) {
-        this.priceActualKWh = priceActualKWh;
-        this.precioPunta = precioPunta;
-        this.precioValle = precioValle;
+        this.actualPriceKWh = priceActualKWh;
+        this.pointPrice = precioPunta;
+        this.valleyPrice = precioValle;
     }
 
-    public double getPriceActualKWh() {
-        return priceActualKWh;
+    public double getActualPriceKWh() {
+        return actualPriceKWh;
     }
 }

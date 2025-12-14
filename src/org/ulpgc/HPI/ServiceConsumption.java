@@ -13,7 +13,7 @@ public class ServiceConsumption {
 
     public Bill generateBill(Customer u, EnergyRate t) {
         double consumption = calculateTotal(u);
-        double totalToPay = consumption * t.getPriceActualKWh();
+        double totalToPay = consumption * t.getActualPriceKWh();
         return new Bill(consumption, totalToPay);
     }
 

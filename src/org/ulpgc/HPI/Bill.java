@@ -11,9 +11,9 @@ public class Bill {
     }
 
     public void printBill() {
-        System.out.println("----- FACTURA -----");
-        System.out.println("Consumo total: " + totalKWh + " kWh");
-        System.out.println("Total a pagar: " + totalPay + " €");
+        System.out.println("----- BILL -----");
+        System.out.println("Total consumption: " + totalKWh + " kWh");
+        System.out.println("Total to pay: " + totalPay + " €");
     }
     public double getTotalKWh() {
         return totalKWh;
