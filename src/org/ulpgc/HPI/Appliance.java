@@ -1,54 +1,54 @@
 package org.ulpgc.HPI;
 
 public class Appliance {
-    private String nombre;
-    private double potenciaW;
-    private double consumoActualKWh;
-    private boolean estado;
-    private UseTime horario;
+    private String name;
+    private double powerW;
+    private double actualKWh;
+    private boolean state;
+    private UseTime schedule;
 
-    public Appliance(String nombre, double potenciaW) {
-        this.nombre = nombre;
-        this.potenciaW = potenciaW;
-        this.consumoActualKWh = 0;
-        this.estado = false;
-        this.horario = null;
+    public Appliance(String name, double powerW) {
+        this.name = name;
+        this.powerW = powerW;
+        this.actualKWh = 0;
+        this.state = false;
+        this.schedule = null;
     }
 
-    public void setHorario(UseTime horario) {
-        this.horario = horario;
+    public void setSchedule(UseTime setSchedule) {
+        this.schedule = schedule;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public double getPotenciaW() {
-        return potenciaW;
+    public double getPowerW() {
+        return powerW;
     }
 
-    public double getConsumoActualKWh() {
-        return consumoActualKWh;
+    public double getActualKWh() {
+        return actualKWh;
     }
 
-    public void setConsumoActualKWh(double consumoActualKWh) {
-        this.consumoActualKWh = consumoActualKWh;
+    public void setActualKWh(double actualKWh) {
+        this.actualKWh = actualKWh;
     }
 
-    public boolean isEncendido() {
-        return estado;
+    public boolean isOn() {
+        return state;
     }
 
-    public void encender() {
-        this.estado = true;
+    public void on() {
+        this.state = true;
     }
 
-    public void apagar() {
-        this.estado = false;
+    public void off() {
+        this.state = false;
     }
 
-    public UseTime getHorario() {
-        return horario;
+    public UseTime getSchedule() {
+        return schedule;
     }
 }
 

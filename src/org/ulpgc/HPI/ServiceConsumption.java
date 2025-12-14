@@ -2,18 +2,18 @@ package org.ulpgc.HPI;
 
 public class ServiceConsumption {
 
-    public double calcularConsumoTotal(Custumer u) {
+    public double calculateTotal(Customer u) {
         double total = 0;
-        for (Appliance e : u.getElectrodomesticos()) {
-            total += e.getConsumoActualKWh();
+        for (Appliance e : u.getAppliances()) {
+            total += e.getActualKWh();
         }
         return total;
     }
 
-    public Bill generarFactura(Custumer u, EnergyRate t) {
-        double consumo = calcularConsumoTotal(u);
-        double totalPagar = consumo * t.getPrecioActualKWh();
-        return new Bill(consumo, totalPagar);
+    public Bill generateBill(Customer u, EnergyRate t) {
+        double consumption = calculateTotal(u);
+        double totalToPay = consumption * t.getPriceActualKWh();
+        return new Bill(consumption, totalToPay);
     }
 
 }

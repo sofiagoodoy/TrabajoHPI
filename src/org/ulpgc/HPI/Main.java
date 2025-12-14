@@ -9,84 +9,91 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
        //datos usuario
-        System.out.println("Introduce tu nombre:");
-        String nombre = sc.nextLine();
+        System.out.println("Introduce your name:");
+        String name = sc.nextLine();
 
-        System.out.println("Introduce tu dirección:");
-        String direccion = sc.nextLine();
+        System.out.println("Introduce your address:");
+        String address = sc.nextLine();
 
-        System.out.println("Introduce tu número de teléfono:");
-        String telefono = sc.nextLine();
+        System.out.println("Introduce your phone number:");
+        String phone = sc.nextLine();
 
-        System.out.println("¿Eres premium? (si/no)");
-        boolean esPremium = sc.nextLine().equalsIgnoreCase("si");
+        System.out.println("Are you premium? (yes/no)");
+        boolean isPremium = sc.nextLine().equalsIgnoreCase("yes");
 
-        Custumer usuario = new Custumer(nombre, direccion, telefono, esPremium);
+        Customer user = new Customer(name, address, phone, isPremium);
 
 
         // electrodomesticos
-        System.out.println("¿Cuántos electrodomésticos quieres registrar?");
-        int cantidad = leerEntero(sc);
+        System.out.println("How many appliances do you want to register?");
+        int amount = leerEntero(sc);
 
-        for (int i = 0; i < cantidad; i++) {
+        for (int i = 0; i < amount; i++) {
 
-            System.out.println("\nNombre del electrodoméstico " + (i + 1) + ":");
-            String nombreElec = sc.nextLine();
+            System.out.println("\nName of the appliance " + (i + 1) + ":");
+            String nameAp = sc.nextLine();
 
-            System.out.println("Potencia en W:");
-            double potencia = leerDouble(sc);
+            System.out.println("Power in W:");
+            double power = leerDouble(sc);
 
-            System.out.println("Consumo actual en kWh:");
-            double consumo = leerDouble(sc);
+            System.out.println("Actual consumption in kWh:");
+            double consumption = leerDouble(sc);
 
-            Appliance e = new Appliance(nombreElec, potencia);
-            e.setConsumoActualKWh(consumo);
+            Appliance e = new Appliance(nameAp, power);
+            e.setActualKWh(consumption);
 
             //horario
-            System.out.println("¿Quieres asignar horario automático? (si/no)");
-            if (sc.nextLine().equalsIgnoreCase("si")) {
-                System.out.println("Hora de inicio (HH:mm):");
-                LocalTime inicio = LocalTime.parse(sc.nextLine());
+            System.out.println("\n" + "Do you want to assign automatic scheduling? (yes/no)");
+            if (sc.nextLine().equalsIgnoreCase("yes")) {
+                System.out.println("Start time (HH:mm):");
+                LocalTime start = LocalTime.parse(sc.nextLine());
 
-                System.out.println("Hora de fin (HH:mm):");
-                LocalTime fin = LocalTime.parse(sc.nextLine());
+                System.out.println("End time (HH:mm):");
+                LocalTime end = LocalTime.parse(sc.nextLine());
 
-                UseTime horario = new UseTime(inicio, fin, true);
-                e.setHorario(horario);
+                UseTime schedule = new UseTime(start, end, true);
+                e.setSchedule(schedule);
             }
 
-            usuario.agregarElectrodomestico(e);
+            user.addAppliance(e);
         }
 
         // ==========================
         // TARIFA
         // ==========================
-        System.out.println("\nIntroduce el precio del kWh (€):");
-        double precioKWh = leerDouble(sc);
+        System.out.println("\nIntroduce the price of the kWh (€):");
+        double price = leerDouble(sc);
 
-        EnergyRate tarifa = new EnergyRate(precioKWh, 0, 0);
+        EnergyRate rate = new EnergyRate(price, 0, 0);
 
         // ==========================
         // CONTROL AUTOMÁTICO (usa HorarioUso y Controlador)
         // ==========================
-        ApplianceController controlador = new ApplianceController();
-        controlador.aplicarHorarios(usuario);
+        ApplianceController controller = new ApplianceController();
+        controller.addSchedule(user);
 
         // ==========================
         // FACTURA
         // ==========================
-        ServiceConsumption servicio = new ServiceConsumption();
-        Bill factura = servicio.generarFactura(usuario, tarifa);
+        ServiceConsumption service = new ServiceConsumption();
+        Bill bill = service.generateBill(user, rate);
 
         // ==========================
         // RESULTADO
         // ==========================
-        System.out.println("\n=====================================");
-        System.out.println(usuario.getNombre() + ", tu factura es: "
-                + factura.getTotalAPagar() + " €");
-        System.out.println("Has consumido: "
-                + factura.getConsumoTotalKWh() + " kWh");
-        System.out.println("=====================================");
+        System.out.println("\n");
+        System.out.println(user.getName() + ", your bill is: "
+                + bill.getTotalPay() + " €");
+        System.out.println("You has consumption: "
+                + bill.getTotalKWh() + " kWh");
+        System.out.println("You will receive a message with the total amount of the bill to: " +
+                user.getPhone());
+        if (user.isPremium()) {
+            System.out.println("As a premium user if you want a technician for any of your appliances we will sent them to your address: +" +
+                    user.getAddress());
+        }
+
+
 
         sc.close();
     }

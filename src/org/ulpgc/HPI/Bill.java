@@ -1,25 +1,25 @@
 package org.ulpgc.HPI;
 
 public class Bill {
-    private double consumoTotalKWh;
-    private double totalAPagar;
+    private double totalKWh;
+    private double totalPay;
 
-    public Bill(double consumoTotalKWh, double totalAPagar) {
-        this.consumoTotalKWh = consumoTotalKWh;
-        this.totalAPagar = totalAPagar;
+    public Bill(double totalKWh, double totalPay) {
+        this.totalKWh = totalKWh;
+        this.totalPay = totalPay;
     }
 
-    public void imprimirFactura() {
+    public void printBill() {
         System.out.println("----- FACTURA -----");
-        System.out.println("Consumo total: " + consumoTotalKWh + " kWh");
-        System.out.println("Total a pagar: " + totalAPagar + " €");
+        System.out.println("Consumo total: " + totalKWh + " kWh");
+        System.out.println("Total a pagar: " + totalPay + " €");
     }
-    public double getConsumoTotalKWh() {
-        return consumoTotalKWh;
+    public double getTotalKWh() {
+        return totalKWh;
     }
 
-    public double getTotalAPagar() {
-        return totalAPagar;
+    public double getTotalPay() {
+        return totalPay;
     }
 
 }

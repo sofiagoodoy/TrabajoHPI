@@ -3,26 +3,26 @@ package org.ulpgc.HPI;
 import java.time.LocalTime;
 
 public class UseTime {
-    private LocalTime inicio;
-    private LocalTime fin;
-    private boolean autoEncendido;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private boolean autoOn;
 
-    public UseTime(LocalTime inicio, LocalTime fin, boolean autoEncendido) {
-        this.inicio = inicio;
-        this.fin = fin;
-        this.autoEncendido = autoEncendido;
+    public UseTime(LocalTime startTime, LocalTime endTime, boolean autoOn) {
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.autoOn = autoOn;
     }
 
-    public LocalTime getInicio() {
-        return inicio;
+    public LocalTime getStartTime() {
+        return startTime;
     }
 
-    public LocalTime getFin() {
-        return fin;
+    public LocalTime getEndTime() {
+        return endTime;
     }
 
-    public boolean isAutoEncendido() {
-        return autoEncendido;
+    public boolean isAutoOn() {
+        return autoOn;
     }
 }
 
